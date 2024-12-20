@@ -5,7 +5,7 @@
     # Write a simple Python script with at least two functions that perform different operations. 
     # Documentation video on unit testing in python: https://www.youtube.com/watch?v=6tNS--WetLI
 
-def subtrate_numbers(a, b):
+def subtract_numbers(a, b):
   """Subtrate Function """
   """Checks if the datatype is a integar or float """
   if isinstance(a, (int, float)) and isinstance (b, (int, float)):
@@ -13,8 +13,8 @@ def subtrate_numbers(a, b):
   else:
      return "Please enter a valid number!"
 
-print (subtrate_numbers(2,3))
-print (subtrate_numbers("hi", "not a number!"))
+print (subtract_numbers(2,3))
+print (subtract_numbers("hi", "not a number!"))
 
 def divide_numbers(a, b):
   """ Divide Function """
