@@ -2,14 +2,29 @@
 
     # Install Python on your local machine if you haven't already. Make sure you have version 3.x installed.
     # Open a text editor or IDE (like PyCharm, VSCode, or Sublime Text) and create a new Python file.
-    # Write a simple Python script with at least two functions that perform different operations. For example:
+    # Write a simple Python script with at least two functions that perform different operations. 
+    # Documentation video on unit testing in python: https://www.youtube.com/watch?v=6tNS--WetLI
 
-def add_numbers(a, b):
-  return a + b
+def subtrate_numbers(a, b):
+  """Subtrate Function """
+  """Checks if the datatype is a integar or float """
+  if isinstance(a, (int, float)) and isinstance (b, (int, float)):
+     return a - b
+  else:
+     return "Please enter a valid number!"
 
-print (add_numbers(2,3))
+print (subtrate_numbers(2,3))
+print (subtrate_numbers("hi", "not a number!"))
 
-def multiply_numbers(a, b):
-    return a * b
+def divide_numbers(a, b):
+  """ Divide Function """
+  """Checks if the inputs are 0"""
+  if b == 0 or a == 0:
+    return "Cannot divide by 0"
+  
+  elif isinstance(a, (int, float)) and isinstance (b, (int, float)):
+    return a/b
 
-print (multiply_numbers(2,3))
+print (divide_numbers(2,3))
+print (divide_numbers(10, 0))
+
