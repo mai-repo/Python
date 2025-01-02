@@ -2,7 +2,7 @@
 
 #unit test is a built in module for writing and running tests
 import unittest
-from first_assignment import subtract_numbers, divide_numbers
+from main import subtract_numbers, divide_numbers
 
 class TestCalculations(unittest.TestCase):
         def test_subtract_numbers(self):
@@ -13,7 +13,7 @@ class TestCalculations(unittest.TestCase):
                 self.assertEqual(divide_numbers(10, 0), "Cannot divide by 0")
                 self.assertEqual(divide_numbers(20, 2), 10)
 
-        """This is a failed test """
+        # """This is a failed test """
         # def test_add_numbers(self):
         #         self.assertEqual(add_numbers(5, 3), 8)
         #         self.assertEqual(add_numbers(-1, 1), 0)

@@ -25,6 +25,6 @@ def divide_numbers(a, b):
   elif isinstance(a, (int, float)) and isinstance (b, (int, float)):
     return a/b
 
-print (divide_numbers(2,3))
+print (divide_numbers(2, 3))
 print (divide_numbers(10, 0))
 
