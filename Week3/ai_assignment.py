@@ -6,42 +6,42 @@ def main():  # Main function to run the program
 
     while True:
         try:
-            # Get user input
-            a = (input("Let's figure out the sum of two numbers! Enter the first number: "))
-            b = (input("Enter second number: "))
+            # Get user input for the sum
+            first_number = input("Let's figure out the sum of two numbers! Enter the first number: ")
+            second_number = input("Enter the second number: ")
 
             # Perform operations
-            print("Sum of two numbers is: ", add_numbers(a, b))
+            print("Sum of two numbers is: ", add_numbers(first_number, second_number))
 
-            # Get user input
-            a = (input("Let's figure out the difference of two numbers! Enter the first number: "))
-            b = (input("Enter anothernumber: "))
+            # Get user input for the difference
+            first_number = input("Let's figure out the difference of two numbers! Enter the first number: ")
+            second_number = input("Enter another number: ")
 
             # Perform operations
-            print("Difference of two numbers is: ", subtract_numbers(a, b))
+            print("Difference of two numbers is: ", subtract_numbers(first_number, second_number))
 
             # Print exit message
             print("Thank you for using the AI Calculator")
+
         except ValueError:
             print("Please enter a valid number")
+           
         finally:
             # Ask if the user wants to continue
-            continue_calculation = input("Do you want to perform another calculation? (yes/no): ").strip().lower()
-            if continue_calculation != "yes":
+            continue_calculation = input("Do you want to perform another calculation? (y/n): ").strip().lower()
+            if continue_calculation != "y":
                 break
+
     print("Goodbye!")
 
-def add_numbers(a, b):
+def add_numbers(first_number, second_number):
     # Function to add two numbers
-     return int(a) + int(b)
+    return int(first_number) + int(second_number)
 
-def subtract_numbers(a, b):
+def subtract_numbers(first_number, second_number):
     # Function to subtract two numbers
-    return int(a) - int(b)
+    return int(first_number) - int(second_number)
 
-
-    # Main execution
+# Main execution
 if __name__ == "__main__":
     main()
-
-# Run your script and observe its output.
