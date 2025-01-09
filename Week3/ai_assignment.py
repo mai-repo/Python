@@ -19,8 +19,6 @@ def main():  # Main function to run the program
 
             # Perform operations
             print("Difference of two numbers is: ", subtract_numbers(first_number, second_number))
-
-            # Print exit message
             print("Thank you for using the AI Calculator")
 
         except ValueError:
@@ -31,7 +29,8 @@ def main():  # Main function to run the program
             continue_calculation = input("Do you want to perform another calculation? (y/n): ").strip().lower()
             if continue_calculation != "y":
                 break
-
+            
+    #Print Goodbye Messsage
     print("Goodbye!")
 
 def add_numbers(first_number, second_number):
