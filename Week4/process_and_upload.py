@@ -24,10 +24,12 @@ def upload_to_web_service(data):
         print(f"An error occured: {e}")
         return None
 
+# This is the route that will be used to upload the file
 @app.route('/', methods=['GET'])
 def home():
     return render_template('index.html')
 
+# This is the route that will be used to upload the file
 @app.route('/file', methods=['GET'])
 def get_feedback():
     try:
