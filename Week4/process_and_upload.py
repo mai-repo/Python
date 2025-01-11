@@ -4,40 +4,42 @@ from flask import Flask, jsonify, render_template, request
 import json
 
 app = Flask(__name__)
+
 # Define the folder where files will be saved
 UPLOAD_FOLDER = '/Users/thanhmai/Python_Assignments/Week4/data'
 
 # Make sure the upload folder exists
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
-
+# File paths for user and Spotify data
 file = '/Users/thanhmai/Python_Assignments/Week4/data/user_data.json'
 spotify_file = '/Users/thanhmai/Python_Assignments/Week4/data/spotify_data.json'
 
-
+# Function to read a JSON file and return its contents as a dictionary
 def process_file(file_path): 
     try:
+        #process that data and return a dictionary 
         with open (file_path, 'r') as file:
-            data = file.read() #process that data and return a dictionary 
+            data = file.read()
             feedback_dic = json.loads(data)
             return feedback_dic
     except Exception as e:
         print(f"An error occured: {e}")
         return None 
     
-# This is the route that will be used to upload the file
+# Route to render the homepage
 @app.route('/', methods=['GET'])
 def home():
     return render_template('index.html')
 
-
+# Route to retrieve user data (first name and email)
 @app.route('/file', methods=['GET'])
 def get_feedback():
     try:
         file_data = process_file(file)
         if file_data:
             new_data = []
-            for item in file_data:  # Loop through each dictionary in the list
+            for item in file_data:  # Loop through each dictionary 
                 new_data.append({
                     "first_name": item["first_name"],
                     "email": item["email"]
@@ -48,7 +50,8 @@ def get_feedback():
     except Exception as e:
         print(f"An error occurred: {e}")
         return jsonify({"message": "An internal server error occurred"}), 500
-
+    
+# Route to retrieve Spotify data (artist and vibe)
 @app.route('/spotify', methods=['GET'])
 def get_spotify():
     try:
@@ -59,27 +62,12 @@ def get_spotify():
                 new_spotify.append({
                     "artist": spotify["artist"],
                     "vibe": spotify["vibe"]})
-            return new_spotify
+            return jsonify(new_spotify)
     except Exception as e:
         print(f"An error occurred: {e}")
         return jsonify({"message": "An internal server error occurred"}), 500
-
-# Route to handle file upload via POST request
-# @app.route('/upload', methods=['POST'])
-# def upload():
-#     if 'file' in request.files:
-#         uploaded_file = request.files['file']
-#         if uploaded_file.filename != '':
-#             # Define the file path where it will be saved
-#             file_path = os.path.join(UPLOAD_FOLDER, uploaded_file.filename)
-#             uploaded_file.save(file_path)
-
-#             new_data_return = process_file(uploaded_file)
-#             return jsonify(new_data_return)
-
-#     return jsonify({"message": "No file provided or invalid file."}), 400
-
-# Route to handle file upload via POST request
+    
+# Route to handle file uploads
 @app.route('/upload', methods=['POST'])
 def upload():
     if 'file' not in request.files:
