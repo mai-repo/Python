@@ -2,7 +2,7 @@
 
 #unit test is a built in module for writing and running tests
 import unittest
-from main import subtract_numbers, divide_numbers
+from Week1.main import subtract_numbers, divide_numbers
 
 class TestCalculations(unittest.TestCase):
         def test_subtract_numbers(self):
